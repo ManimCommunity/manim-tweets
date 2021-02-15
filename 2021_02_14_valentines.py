@@ -1,7 +1,7 @@
 from manim import *
 
 
-class Lec2GraphScene(GraphScene, MovingCameraScene):
+class ValentineScene(GraphScene, MovingCameraScene):
     def setup(self):
         MovingCameraScene.setup(self)
 
