@@ -1,6 +1,11 @@
 # manim-tweets
-[![Pendulum Example](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ManimCommunity/manim-tweets/HEAD?filepath=pendulum_example.ipynb)
+
 Code for tweets by @manim_community on twitter.
+
+## Try online without installation:
+
+An animated pendulum: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ManimCommunity/manim-tweets/HEAD?filepath=pendulum_example.ipynb)
+
 
 **NOTE**
 
