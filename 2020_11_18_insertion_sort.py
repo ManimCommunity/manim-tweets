@@ -34,28 +34,34 @@ class Array(VGroup):
         # Swap on screen
         if swap_mode == SwapMode.ACROSS:
             scn.play(
-                self.submobjects[j].shift,
-                LEFT * self.submobjects[i].get_width(),
-                self.submobjects[i].shift,
-                RIGHT * self.submobjects[j].get_width(),
+                self.submobjects[j].animate.shift(
+                    LEFT * self.submobjects[i].get_width()
+                ),
+                self.submobjects[i].animate.shift(
+                    RIGHT * self.submobjects[j].get_width()
+                ),
                 run_time=self.run_time,
             )
         elif swap_mode == SwapMode.OVER:
             scn.play(
-                self.submobjects[j].shift,
-                self.submobjects[j].get_height() * UP,
+                self.submobjects[j].animate.shift(
+                    self.submobjects[j].get_height() * UP
+                ),
                 run_time=self.run_time / 3,
             )
             scn.play(
-                self.submobjects[j].shift,
-                self.submobjects[j].get_width() * LEFT,
-                self.submobjects[i].shift,
-                self.submobjects[j].get_width() * RIGHT,
+                self.submobjects[j].animate.shift(
+                    self.submobjects[j].get_width() * LEFT
+                ),
+                self.submobjects[i].animate.shift(
+                    self.submobjects[j].get_width() * RIGHT
+                ),
                 run_time=self.run_time / 3,
             )
             scn.play(
-                self.submobjects[j].shift,
-                self.submobjects[j].get_height() * DOWN,
+                self.submobjects[j].animate.shift(
+                    self.submobjects[j].get_height() * DOWN
+                ),
                 run_time=self.run_time / 3,
             )
         else:

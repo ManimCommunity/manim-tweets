@@ -244,4 +244,4 @@ class DraftScene(MovingCameraScene):
         sun_trail.add_updater(trail_sun)
         self.add(sun_trail)
 
-        self.play(v.set_value, WAIT_TIME, run_time=WAIT_TIME, rate_func=linear)
+        self.play(v.animate.set_value(WAIT_TIME), run_time=WAIT_TIME, rate_func=linear)

@@ -15,7 +15,7 @@ class BinarySearchTree(VGroup):
         color_nodes=False,
         max_value=16,
         animation_runtime=0.2,
-        insertion_initial_offset=1
+        insertion_initial_offset=1,
     ):
         super().__init__()
         self.scene = scene
@@ -77,8 +77,9 @@ class BinarySearchTree(VGroup):
         while cur_node is not None:
             if node.value <= cur_node.value:
                 self.scene.play(
-                    node.move_to,
-                    cur_node.get_center() + 2 * cur_node["node"].radius * LEFT,
+                    node.animate.move_to(
+                        cur_node.get_center() + 2 * cur_node["node"].radius * LEFT
+                    ),
                     run_time=self.animation_runtime,
                 )
                 if cur_node.left_child is not None:
@@ -100,8 +101,7 @@ class BinarySearchTree(VGroup):
                     edge = Line(edge_start, edge_end, stroke_color=node.color)
 
                     self.scene.play(
-                        node.move_to,
-                        child_location,
+                        node.animate.move_to(child_location),
                         FadeIn(edge),
                         run_time=self.animation_runtime,
                     )
@@ -110,8 +110,9 @@ class BinarySearchTree(VGroup):
                     break
             else:
                 self.scene.play(
-                    node.move_to,
-                    cur_node.get_center() + 2 * cur_node["node"].radius * RIGHT,
+                    node.animate.move_to(
+                        cur_node.get_center() + 2 * cur_node["node"].radius * RIGHT
+                    ),
                     run_time=self.animation_runtime,
                 )
                 if cur_node.right_child is not None:
@@ -133,8 +134,7 @@ class BinarySearchTree(VGroup):
                     edge = Line(edge_start, edge_end, stroke_color=node.color)
 
                     self.scene.play(
-                        node.move_to,
-                        child_location,
+                        node.animate.move_to(child_location),
                         FadeIn(edge),
                         run_time=self.animation_runtime,
                     )

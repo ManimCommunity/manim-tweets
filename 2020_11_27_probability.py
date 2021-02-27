@@ -1,6 +1,6 @@
 from manim import *
 import colour
-
+import random
 
 NUM_DOTS = 250
 FALL_TIME = 1
@@ -70,8 +70,7 @@ class DraftScene(Scene):
         p_not_a = Label("P($\\neg A$)").to_corner(UP + RIGHT)
 
         self.play(
-            event_a.set_color,
-            WHITE,
+            event_a.animate.set_color(WHITE),
             FadeOutAndShift(p_a),
             FadeInFrom(p_not_a, UP),
         )
@@ -110,8 +109,7 @@ class DraftScene(Scene):
             "P($A \\cap B$)", color=interpolate_color(BLUE, RED, 0.5)
         ).to_corner(UP + RIGHT)
         self.play(
-            event_b.set_color,
-            RED,
+            event_b.animate.set_color(RED),
             FadeOutAndShift(p_a_or_b),
             FadeInFrom(p_a_and_b, UP),
         )

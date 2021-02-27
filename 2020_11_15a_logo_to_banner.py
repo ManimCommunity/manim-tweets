@@ -1,7 +1,6 @@
 from manim import *
 
 
-
 def normalize(v):
     norm = np.linalg.norm(v)
     if norm == 0:
@@ -64,7 +63,7 @@ class DraftScene(Scene):
 
             mob.add_updater(updater)
 
-        self.play(tracker.set_value, 1, run_time=spiral_run_time)
+        self.play(tracker.animate.set_value(1), run_time=spiral_run_time)
 
         circle.clear_updaters()
         square.clear_updaters()
@@ -92,10 +91,9 @@ class DraftScene(Scene):
             tex.align_to(ds_m, DOWN)
             anim.add(tex)
 
-        anim.set_color(logo_black) \
-            .set_height(m_height_over_anim_height * ds_m.get_height()) \
-            .next_to(ds_m_target, buff=m_anim_buff) \
-            .align_to(ds_m, DOWN)
+        anim.set_color(logo_black).set_height(
+            m_height_over_anim_height * ds_m.get_height()
+        ).next_to(ds_m_target, buff=m_anim_buff).align_to(ds_m, DOWN)
 
         banner = VGroup(
             ds_m_target, anim, circle_target, square_target, triangle_target
@@ -105,14 +103,10 @@ class DraftScene(Scene):
         ds_m_offset_vec = ds_m_target.get_center() - ds_m.get_center()
 
         self.play(
-            circle.shift,
-            ds_m_offset_vec,
-            square.shift,
-            ds_m_offset_vec,
-            triangle.shift,
-            ds_m_offset_vec,
-            ds_m.shift,
-            ds_m_offset_vec,
+            circle.animate.shift(ds_m_offset_vec),
+            square.animate.shift(ds_m_offset_vec),
+            triangle.animate.shift(ds_m_offset_vec),
+            ds_m.animate.shift(ds_m_offset_vec),
         )
 
         tracker.set_value(0)
@@ -129,8 +123,7 @@ class DraftScene(Scene):
             mob.add_updater(updater)
 
         self.play(
-            tracker.set_value,
-            1,
+            tracker.animate.set_value(1),
             FadeIn(anim, lag_ratio=1),
         )
         anim.z_index = 20

@@ -89,7 +89,9 @@ class HamiltonianCycle(Scene):
         cycle_lines = []
         for k in range(len(cycle_ind)):
             self.play(
-                dots[cycle_ind[k]].set_color, RED, run_time=0.3, rate_function=linear
+                dots[cycle_ind[k]].animate.set_color(RED),
+                run_time=0.3,
+                rate_function=linear,
             )
             new_line = Line(
                 dots[cycle_ind[k]].get_center(),
@@ -100,7 +102,7 @@ class HamiltonianCycle(Scene):
             cycle_lines.append(new_line)
             self.play(ShowCreation(new_line), run_time=0.65)
         self.wait(1)
-        self.play(VGroup(vgroup, *cycle_lines).shift, 3 * LEFT)
+        self.play(VGroup(vgroup, *cycle_lines).animate.shift(3 * LEFT))
         t1 = Tex("The graph")
         t1.next_to(vgroup, RIGHT)
         self.play(Write(t1))
