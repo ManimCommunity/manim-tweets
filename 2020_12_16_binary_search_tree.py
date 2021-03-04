@@ -15,7 +15,7 @@ class BinarySearchTree(VGroup):
         color_nodes=False,
         max_value=16,
         animation_runtime=0.2,
-        insertion_initial_offset=1
+        insertion_initial_offset=1,
     ):
         super().__init__()
         self.scene = scene
