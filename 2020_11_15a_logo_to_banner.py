@@ -1,7 +1,6 @@
 from manim import *
 
 
-
 def normalize(v):
     norm = np.linalg.norm(v)
     if norm == 0:
@@ -92,10 +91,9 @@ class DraftScene(Scene):
             tex.align_to(ds_m, DOWN)
             anim.add(tex)
 
-        anim.set_color(logo_black) \
-            .set_height(m_height_over_anim_height * ds_m.get_height()) \
-            .next_to(ds_m_target, buff=m_anim_buff) \
-            .align_to(ds_m, DOWN)
+        anim.set_color(logo_black).set_height(
+            m_height_over_anim_height * ds_m.get_height()
+        ).next_to(ds_m_target, buff=m_anim_buff).align_to(ds_m, DOWN)
 
         banner = VGroup(
             ds_m_target, anim, circle_target, square_target, triangle_target

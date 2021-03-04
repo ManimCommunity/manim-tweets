@@ -28,8 +28,12 @@ class Pendulum(VGroup):
 
         def updater(mob, dt):
             mob.current_time += dt
-            new_phi = self.phi_function(self.amplitude, self.acceleration, self.length, mob.current_time)
-            mob[0].rotate( (new_phi - self.phi) * DEGREES, about_point=self.line.get_start() )
+            new_phi = self.phi_function(
+                self.amplitude, self.acceleration, self.length, mob.current_time
+            )
+            mob[0].rotate(
+                (new_phi - self.phi) * DEGREES, about_point=self.line.get_start()
+            )
             if np.sign(self.phi) < np.sign(new_phi):
                 self.sound_stamps_there.append(mob.current_time)
             if np.sign(self.phi) > np.sign(new_phi):
