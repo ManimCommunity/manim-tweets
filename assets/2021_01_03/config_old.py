@@ -3,4 +3,5 @@ class MyAwesomeMobject:
         "coolness": 9001,
     }
 
+
 obj = MyAwesomeMobject()

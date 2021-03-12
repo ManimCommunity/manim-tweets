@@ -1,5 +1,10 @@
 # manim-tweets
+
 Code for tweets by @manim_community on twitter.
+
+## Try online without installation:
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ManimCommunity/manim-tweets/HEAD?filepath=jupyter_notebooks%2Fpendulum%2Fpendulum_example.ipynb) : An animated pendulum
 
 **NOTE**
 
