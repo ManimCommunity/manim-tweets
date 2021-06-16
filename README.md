@@ -1,6 +1,6 @@
 # manim-tweets
 
-Code for tweets by @manim_community on twitter.
+Code for tweets by @manim_community on twitter. Both the code and video output are licensed under the MIT license.
 
 ## Try online without installation:
 
